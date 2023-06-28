@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>React Intro</title>
+	</head>
+	<body>
+		<!-- <h2>React Intro</h2> -->
+
+		<div id="root"></div>
+
+		<!-- Load Babel - used to parse JSX -->
+		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+		<!-- React's core library-->
+		<script
+			crossorigin
+			src="https://unpkg.com/react@18/umd/react.development.js"
+		></script>
+		<!-- ReactDOM library renders the content created with React to the DOM. -->
+		<script
+			crossorigin
+			src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+		></script>
+		<script type="text/babel">
+			/**
+			 * The render method in react requires that only 1 html tag be returned
+			 */
+			ReactDOM.render(
+				<div>
+					<h1>React Intro</h1>
+
+					<p>React is a front-end Javascript library</p>
+					<aside>React is your friend till the end!</aside>
+				</div>,
+				document.getElementById("root")
+			);
+		</script>
+	</body>
+</html>
