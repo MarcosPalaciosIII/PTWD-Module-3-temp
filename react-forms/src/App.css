@@ -38,12 +38,12 @@
 }
 
 /* my styles */
-
+/* #root > div > div */
 .task-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 50vw;
+  width: 50vw !important;
   border: 1px solid black;
   margin: 10px;
 }
