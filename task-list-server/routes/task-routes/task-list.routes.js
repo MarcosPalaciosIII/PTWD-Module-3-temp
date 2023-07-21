@@ -47,6 +47,30 @@ router.put("/:taskListId", (req, res) => {
 		});
 });
 
+// UPDATE array of tasks
+router.put("/:taskListId/:taskId", (req, res) => {
+	TaskList.findById(req.params.taskListId)
+		.then((taskList) => {
+			if (taskList.tasks.includes(req.params.taskId)) {
+				taskList.tasks.pull(req.params.taskId);
+			} else {
+				taskList.tasks.push(req.params.taskId);
+			}
+
+			taskList
+				.save()
+				.then((updatedTaskList) => {
+					res.json({ success: true, taskList: updatedTaskList });
+				})
+				.catch((err) => {
+					res.json({ success: false, error: err });
+				});
+		})
+		.catch((err) => {
+			res.json({ success: false, error: err });
+		});
+});
+
 // DELETE
 router.delete("/:taskListId", (req, res) => {
 	TaskList.findByIdAndRemove(req.params.taskListId)
