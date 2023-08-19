@@ -4,7 +4,6 @@ const Task = require("../../models/Task.model");
 
 // CREATE
 router.post("/", (req, res) => {
-	// adding note to commit
 	Task.create(req.body)
 		.then((task) => {
 			res.json({ success: true, task });
