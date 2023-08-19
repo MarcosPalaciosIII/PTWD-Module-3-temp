@@ -9,7 +9,12 @@ export const TaskProvider = ({ children }) => {
 
 	const handleTaskSubmit = (formData) => {
 		axios
-			.post("http://localhost:5005/task-lists", formData)
+			.post(
+				`${
+					process.env.REACT_APP_API_URL || "http://localhost:5005"
+				}/task-lists`,
+				formData
+			)
 			.then((res) => {
 				console.log({ create: res.data });
 				setTasks([...taskList, res.data.taskList]);
